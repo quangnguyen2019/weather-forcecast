@@ -1,0 +1,23 @@
+.forecast-container {
+    position: absolute;
+    z-index: 99;
+    width: 1272px;
+    margin: 0 38px;
+
+    .temp-content {
+        height: 320px;
+    }
+
+    .forecast-days {
+        .forecast-title {
+            text-transform: uppercase;
+            margin-bottom: 22px;
+            font-size: 14px;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}

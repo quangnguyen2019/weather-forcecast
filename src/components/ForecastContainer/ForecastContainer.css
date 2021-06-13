@@ -1,0 +1,20 @@
+.forecast-container {
+  position: absolute;
+  z-index: 99;
+  width: 1272px;
+  margin: 0 38px;
+}
+.forecast-container .temp-content {
+  height: 320px;
+}
+.forecast-container .forecast-days .forecast-title {
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  font-size: 14px;
+}
+.forecast-container .forecast-days .card-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=ForecastContainer.css.map */
