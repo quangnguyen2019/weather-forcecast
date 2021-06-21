@@ -13,7 +13,9 @@
   user-select: none;
 }
 .day-card .icon {
-  padding-top: 9px;
+  width: 42px;
+  height: 40px;
+  padding: 9px 0 4px;
 }
 .day-card .footer-temperature {
   font-size: 24px;
