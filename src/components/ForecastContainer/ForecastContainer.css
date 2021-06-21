@@ -4,9 +4,6 @@
   width: 1272px;
   margin: 0 38px;
 }
-.forecast-container .temp-content {
-  height: 320px;
-}
 .forecast-container .forecast-days .forecast-title {
   text-transform: uppercase;
   margin-bottom: 22px;
