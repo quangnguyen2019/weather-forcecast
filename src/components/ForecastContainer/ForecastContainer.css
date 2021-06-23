@@ -1,17 +1,18 @@
 .forecast-container {
   position: absolute;
   z-index: 99;
-  width: 1272px;
-  margin: 0 38px;
+  width: 1232px;
+  margin: 0 54px;
 }
 .forecast-container .forecast-days .forecast-title {
   text-transform: uppercase;
   margin-bottom: 22px;
   font-size: 14px;
+  font-weight: 500;
 }
 .forecast-container .forecast-days .card-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=ForecastContainer.css.map */
