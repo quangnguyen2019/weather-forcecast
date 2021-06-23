@@ -31,28 +31,5 @@
   margin: 0;
   opacity: 0.8;
 }
-.current-container .summary-container .detail-line {
-  display: flex;
-  justify-content: space-between;
-}
-.current-container .summary-container .detail-line .detail-item {
-  display: flex;
-}
-.current-container .summary-container .detail-line .detail-item .detail-icon {
-  width: 26px;
-  fill: white;
-  opacity: 0.8;
-  margin-right: 12px;
-}
-.current-container .summary-container .detail-line .detail-item .detail-item-group .detail-item-title {
-  opacity: 0.8;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-}
-.current-container .summary-container .detail-line .detail-item .detail-item-group .detail-item-value {
-  font-size: 17px;
-  font-weight: 500;
-}
 
 /*# sourceMappingURL=SummaryContainer.css.map */

@@ -35,33 +35,5 @@
                 }
             }
         }
-
-        .detail-line {
-            display: flex;
-            justify-content: space-between;
-
-            .detail-item {
-                display: flex;
-
-                .detail-icon {
-                    width: 26px;
-                    fill: white;
-                    opacity: 0.8;
-                    margin-right: 12px;
-                }
-                .detail-item-group {
-                    .detail-item-title {
-                        opacity: 0.8;
-                        font-size: 12px;
-                        text-transform: uppercase;
-                        letter-spacing: 0.4px;
-                    }
-                    .detail-item-value {
-                        font-size: 17px;
-                        font-weight: 500;
-                    }
-                }
-            }
-        }
     }
 }
