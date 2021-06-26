@@ -1,22 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import './ForecastContainer.css';
+
 import SummaryForecast from '../SummaryForecast';
 import DayCard from '../DayCard/index';
 
-export default function ForecastContainer() {
-    const [dataArr, setDataArr] = useState([]);
-    let url = "http://api.weatherunlocked.com/api/forecast/12.496359148010487,109.12066138465396?app_id=f543a0f4&app_key=ce7a7c30aa776c359baab10a2a880db3";
+export default function ForecastContainer({ dataArr }) {
     
-    useEffect(() =>
-        fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            setDataArr(data.Days);
-            console.log(data.Days);
-        })
-    , [url]);
-
     // Get Icon's URL
     const getIconPath = (timeframe) => {
         // Get icon's name from Timeframe
