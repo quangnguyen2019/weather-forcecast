@@ -9,11 +9,9 @@ export default function SummaryForecast({ dataArr, getIconPath }) {
 
     // Get string of current time
     const date = new Date();
-    const tempHour = date.getHours();
     const tempMin = date.getMinutes();
-    const hour = (tempHour < 10) ? tempHour : tempHour;
     const minute = (tempMin < 10) ? ("0" + tempMin) : tempMin;
-    const timeStr = '' + hour + minute;
+    const timeStr = '' + date.getHours() + minute;
     
     // Taken from API the time is smaller and closet
     // to the current time
