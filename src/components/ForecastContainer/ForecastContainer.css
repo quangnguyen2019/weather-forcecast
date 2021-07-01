@@ -2,7 +2,16 @@
   position: absolute;
   z-index: 99;
   width: 1232px;
-  margin: 0 54px;
+  margin: 72px 54px 5px;
+}
+.forecast-container .location-home-icon > svg {
+  width: 17px;
+  fill: white;
+  opacity: 1;
+  margin-right: 12px;
+}
+.forecast-container .location-name {
+  font-size: 18px;
 }
 .forecast-container .forecast-days .forecast-title {
   text-transform: uppercase;

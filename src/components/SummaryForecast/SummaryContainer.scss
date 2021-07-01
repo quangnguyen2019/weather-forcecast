@@ -1,7 +1,10 @@
 .current-container {
-    height: 320px;
-    display: flex;
-    align-items: center;
+    margin-bottom: 40px;
+
+    .update-time {
+        margin: 5px 0 12px;;
+        font-size: 13px;
+    }
 
     .summary-container {
         width: 100%;

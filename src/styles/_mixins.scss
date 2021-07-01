@@ -1,0 +1,6 @@
+@mixin represent-icon($width: 26px, $opacity: 0.8) {
+    width: $width;
+    fill: white;
+    opacity: $opacity;
+    margin-right: 12px;
+}

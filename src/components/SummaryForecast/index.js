@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import dayjs from 'dayjs';
+import localizedFormat from 'dayjs/plugin/localizedFormat'
 
 import './SummaryContainer.css';
 import DetailLine from '../DetailLine/index';
+
+dayjs.extend(localizedFormat);
 
 export default function SummaryForecast({ dataArr, getIconPath }) {
     // STATE
@@ -29,6 +33,11 @@ export default function SummaryForecast({ dataArr, getIconPath }) {
 
     return(
         <div className="current-container">
+            <p className="update-time">
+                {/* 8:30 AM(PM) GMT+07:00 */}
+                Updated as of {dayjs().format('LT [GMT]Z')}
+            </p>
+
             {
                 dataArr.length > 0 &&
                 <div className="summary-container">

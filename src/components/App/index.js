@@ -9,15 +9,23 @@ import Loader from 'react-loader-spinner';
 function App() {
 
     // Position: Latitude & Longitude
-    const [lat, setLat] = useState([]);
-    const [long, setLong] = useState([]);
+    const [lat, setLat] = useState(0);
+    const [long, setLong] = useState(0);
     const [dataArr, setDataArr] = useState([]);
+    const [address, setAddress] = useState('');
 
-    // let url = "http://api.weatherunlocked.com/api/forecast/12.496359148010487,109.12066138465396?app_id=f543a0f4&app_key=ce7a7c30aa776c359baab10a2a880db3";
-    let url = 
-        `${process.env.REACT_APP_API_URL}/${lat},${long}?` + 
+    // API
+    let urlReverse_Geocoding = 
+        `${process.env.REACT_APP_API_REVERSE}?` +
+        `access_key=${process.env.REACT_APP_ACCESS_KEY_POSITIONSTACK}&` +
+        `query=${lat},${long}&` +
+        `limit=1`;
+        
+    let urlWeather = 
+        `${process.env.REACT_APP_API_WEATHER}/${lat},${long}?` + 
         `app_id=${process.env.REACT_APP_ID}&` + 
         `app_key=${process.env.REACT_APP_API_KEY}`;
+       
         
     useEffect(() => {
         async function fetchData() {
@@ -26,14 +34,22 @@ function App() {
                 setLong(position.coords.longitude);
             })
 
-            await fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    setDataArr(data.Days);
-                    console.log(data.Days);
-                })
-        }
+            if (lat !== 0 && long !== 0) {
+                await fetch(urlReverse_Geocoding)
+                    .then(res => res.json())
+                    .then(result => {
+                        let addr = result.data[0];
+                        setAddress(`${addr.county}, ${addr.region}, ${addr.country}`);
+                    })
 
+                await fetch(urlWeather)
+                    .then(res => res.json())
+                    .then(data => {
+                        setDataArr(data.Days);
+                        console.log(data.Days);
+                    })
+            }
+        }
         fetchData();
     }, 
     [lat, long]);
@@ -53,7 +69,7 @@ function App() {
                     <div className="second-layer"></div>
                 </div>
                 
-                <ForecastContainer dataArr={dataArr} />
+                <ForecastContainer address={address} dataArr={dataArr} />
             </div>
     );
 }
