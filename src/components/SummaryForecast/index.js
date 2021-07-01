@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
-import './SummaryContainer.css';
+import '../../styles/styles.css';
 import DetailLine from '../DetailLine/index';
 
 dayjs.extend(localizedFormat);

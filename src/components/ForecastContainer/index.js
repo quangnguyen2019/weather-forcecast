@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './ForecastContainer.css';
+import '../../styles/styles.css';
 
 import SummaryForecast from '../SummaryForecast';
 import DayCard from '../DayCard/index';

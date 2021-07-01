@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './DetailLine.css';
+import '../../styles/styles.css';
 
 export default function DetailLine({ dataArr }) {
     return (

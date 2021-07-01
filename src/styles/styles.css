@@ -1,0 +1,141 @@
+.loader {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.App {
+  color: white;
+}
+.App .background-container .first-layer {
+  position: absolute;
+  z-index: 0;
+  height: 1090px;
+  width: 100%;
+  background: linear-gradient(180deg, #1c54a7 20%, #4177c1 78%, #4177c1 100%);
+}
+.App .background-container .second-layer {
+  background: url(../images/Cloudy.png);
+  position: absolute;
+  z-index: 2;
+  opacity: 60%;
+  width: 100%;
+  height: 1090px;
+  background-repeat: repeat-x;
+}
+
+.forecast-container {
+  position: absolute;
+  z-index: 99;
+  width: 1232px;
+  margin: 72px 54px 5px;
+}
+.forecast-container .location-home-icon > svg {
+  width: 17px;
+  fill: white;
+  opacity: 1;
+  margin-right: 12px;
+}
+.forecast-container .location-name {
+  font-size: 18px;
+}
+.forecast-container .forecast-days .forecast-title {
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.forecast-container .forecast-days .card-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.current-container {
+  margin-bottom: 40px;
+}
+.current-container .update-time {
+  margin: 5px 0 12px;
+  font-size: 13px;
+}
+.current-container .summary-container {
+  width: 100%;
+}
+.current-container .summary-container .summary-line {
+  display: flex;
+  margin-bottom: 20px;
+}
+.current-container .summary-container .summary-line .current-temperature {
+  display: flex;
+  padding-right: 42px;
+}
+.current-container .summary-container .summary-line .current-temperature .summary-icon {
+  width: 110px;
+  height: 110px;
+  padding-top: 9px;
+}
+.current-container .summary-container .summary-line .current-temperature .temperature {
+  font-size: 90px;
+}
+.current-container .summary-container .summary-line .current-summary .caption {
+  margin: 20px 0 15px 0;
+  font-size: 30px;
+  font-weight: 600;
+}
+.current-container .summary-container .summary-line .current-summary .summary {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.day-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 162px;
+}
+.day-card p {
+  font-weight: 400;
+  margin: 0;
+  user-select: none;
+}
+.day-card .icon {
+  width: 42px;
+  height: 40px;
+  padding: 9px 0 4px;
+}
+.day-card .footer-temperature {
+  font-size: 24px;
+}
+.day-card .footer-temperature > p:first-child {
+  font-weight: 600;
+}
+
+.detail-line {
+  display: flex;
+  justify-content: space-between;
+}
+.detail-line .detail-item {
+  display: flex;
+}
+.detail-line .detail-item .detail-icon {
+  width: 26px;
+  fill: white;
+  opacity: 0.8;
+  margin-right: 12px;
+}
+.detail-line .detail-item-group .detail-item-title {
+  opacity: 0.8;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.detail-line .detail-item-group .detail-item-value {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=styles.css.map */

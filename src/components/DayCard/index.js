@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './DayCard.css';
+import '../../styles/styles.css';
 
 export default function DayCard({ date, icon, tempMax, tempMin }) {
     

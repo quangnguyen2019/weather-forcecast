@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import './App.css';
+import '../../styles/styles.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import ForecastContainer from '../ForecastContainer/index';
