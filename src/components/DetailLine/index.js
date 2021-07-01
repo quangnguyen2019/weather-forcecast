@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../../styles/styles.css';
 
-export default function DetailLine({ dataArr }) {
+export default function DetailLine({ timeframe }) {
     return (
         <div className="detail-line">
             <div className="detail-item">
@@ -16,7 +16,7 @@ export default function DetailLine({ dataArr }) {
                 <div className="detail-item-group">
                     <div className="detail-item-title">Feels Like</div>
                     <div className="detail-item-value">
-                        {Math.round(dataArr[0].Timeframes[0].feelslike_c)}&deg;
+                        {Math.round(timeframe.feelslike_c)}&deg;
                     </div>
                 </div>
             </div>
@@ -31,7 +31,16 @@ export default function DetailLine({ dataArr }) {
                 <div className="detail-item-group">
                     <div className="detail-item-title">Wind</div>
                     <div className="detail-item-value">
-                        {dataArr[0].Timeframes[0].windspd_kmh} km/h
+                        {timeframe.windspd_kmh} km/h
+                        <svg
+                            className="wind-dir-icon"
+                            viewBox="0 0 511.335 511.335"
+                            style={{ 
+                                transform: `rotate(${timeframe.winddir_deg}deg)` 
+                            }}
+                        >
+                            <path d="M249.176 3.656L45.665 503.147c-2.15 5.277 3.719 10.215 8.551 7.195l198.3-123.961a3.926 3.926 0 014.148-.009l200.478 124.057c4.843 2.997 10.687-1.962 8.52-7.228L260.044 3.637c-2-4.859-8.885-4.846-10.868.019z"></path>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -46,7 +55,7 @@ export default function DetailLine({ dataArr }) {
                 <div className="detail-item-group">
                     <div className="detail-item-title">Visibility</div>
                     <div className="detail-item-value">
-                        {dataArr[0].Timeframes[0].vis_km} km
+                        {timeframe.vis_km} km
                     </div>
                 </div>
             </div>
@@ -60,7 +69,7 @@ export default function DetailLine({ dataArr }) {
                 <div className="detail-item-group">
                     <div className="detail-item-title">Humidity</div>
                     <div className="detail-item-value">
-                        {dataArr[0].Timeframes[0].humid_pct}%
+                        {timeframe.humid_pct}%
                     </div>
                 </div>
             </div>
@@ -76,7 +85,7 @@ export default function DetailLine({ dataArr }) {
                 <div className="detail-item-group">
                     <div className="detail-item-title">Pressure</div>
                     <div className="detail-item-value">
-                        {dataArr[0].Timeframes[0].slp_mb} mb
+                        {timeframe.slp_mb} mb
                     </div>
                 </div>
             </div>
@@ -90,7 +99,7 @@ export default function DetailLine({ dataArr }) {
                 <div className="detail-item-group">
                     <div className="detail-item-title">Dewpoint</div>
                     <div className="detail-item-value">
-                        {Math.round(dataArr[0].Timeframes[0].dewpoint_c)}&deg;
+                        {Math.round(timeframe.dewpoint_c)}&deg;
                     </div>
                 </div>
             </div>

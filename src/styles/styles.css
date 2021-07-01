@@ -137,5 +137,12 @@
   font-size: 17px;
   font-weight: 500;
 }
+.detail-line .detail-item-group .detail-item-value .wind-dir-icon {
+  width: 11px;
+  fill: white;
+  opacity: 0.8;
+  margin-right: 12px;
+  margin-left: 10px;
+}
 
 /*# sourceMappingURL=styles.css.map */

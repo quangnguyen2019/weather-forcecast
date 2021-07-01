@@ -67,7 +67,7 @@ export default function SummaryForecast({ dataArr, getIconPath }) {
                         </div>
                     </div>
                     
-                    <DetailLine dataArr={dataArr} />
+                    <DetailLine timeframe={timeframe} />
                 </div>
             }
         </div>

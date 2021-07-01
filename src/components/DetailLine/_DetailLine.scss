@@ -21,6 +21,11 @@
             .detail-item-value {
                 font-size: 17px;
                 font-weight: 500;
+
+                .wind-dir-icon {
+                    @include represent-icon(11px);
+                    margin-left: 10px;
+                }
             }
         }
     }
