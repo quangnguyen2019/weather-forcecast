@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../../styles/styles.css';
 
-export default function DetailLine({ timeframe }) {
+export default function DetailLine({ timeframe, unitDeg }) {
     return (
         <div className="detail-line">
             <div className="detail-item">
@@ -16,7 +16,10 @@ export default function DetailLine({ timeframe }) {
                 <div className="detail-item-group">
                     <div className="detail-item-title">Feels Like</div>
                     <div className="detail-item-value">
-                        {Math.round(timeframe.feelslike_c)}&deg;
+                        {Math.round(
+                            unitDeg === "C" ? 
+                            timeframe.feelslike_c : 
+                            timeframe.feelslike_f)}&deg;
                     </div>
                 </div>
             </div>
@@ -31,7 +34,11 @@ export default function DetailLine({ timeframe }) {
                 <div className="detail-item-group">
                     <div className="detail-item-title">Wind</div>
                     <div className="detail-item-value">
-                        {timeframe.windspd_kmh} km/h
+                        {   
+                            unitDeg === "C" ? 
+                            `${timeframe.windspd_kmh} km/h` :
+                            `${timeframe.windspd_mph} mph`
+                        }
                         <svg
                             className="wind-dir-icon"
                             viewBox="0 0 511.335 511.335"
@@ -55,7 +62,11 @@ export default function DetailLine({ timeframe }) {
                 <div className="detail-item-group">
                     <div className="detail-item-title">Visibility</div>
                     <div className="detail-item-value">
-                        {timeframe.vis_km} km
+                        {
+                            unitDeg === "C" ?
+                            `${timeframe.vis_km} km` :
+                            `${timeframe.vis_mi} mi`
+                        }
                     </div>
                 </div>
             </div>
@@ -85,7 +96,11 @@ export default function DetailLine({ timeframe }) {
                 <div className="detail-item-group">
                     <div className="detail-item-title">Pressure</div>
                     <div className="detail-item-value">
-                        {timeframe.slp_mb} mb
+                        {
+                            unitDeg === "C" ?
+                            `${timeframe.slp_mb} mb` :
+                            `${timeframe.slp_in} in`
+                        }    
                     </div>
                 </div>
             </div>
@@ -99,7 +114,10 @@ export default function DetailLine({ timeframe }) {
                 <div className="detail-item-group">
                     <div className="detail-item-title">Dewpoint</div>
                     <div className="detail-item-value">
-                        {Math.round(timeframe.dewpoint_c)}&deg;
+                        {Math.round(
+                            unitDeg === "C" ?
+                            timeframe.dewpoint_c :
+                            timeframe.dewpoint_f)}&deg;
                     </div>
                 </div>
             </div>

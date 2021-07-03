@@ -58,7 +58,7 @@ function App() {
         ( dataArr.length === 0 ) ?
             <Loader
                 className="loader"
-                type="BallTriangle"
+                type="Circles"
                 color="#00Bfff"
                 height={100}
                 width={100}

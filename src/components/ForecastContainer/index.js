@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import '../../styles/styles.css';
 
@@ -6,6 +6,13 @@ import SummaryForecast from '../SummaryForecast';
 import DayCard from '../DayCard/index';
 
 export default function ForecastContainer({ address, dataArr }) {
+    // STATE
+    const [unitDeg, setUnitDeg] = useState("C");
+
+    // Callback switch unit degree
+    const switchUnitDeg = () => {
+        setUnitDeg(unitDeg === "C" ? "F" : "C");
+    };
     
     // Get Icon's URL
     const getIconPath = (timeframe) => {
@@ -54,6 +61,8 @@ export default function ForecastContainer({ address, dataArr }) {
             <SummaryForecast 
                 dataArr={dataArr} 
                 getIconPath={getIconPath}
+                unitDeg={unitDeg}
+                switchUnitDeg={switchUnitDeg}
             />
 
             <div className="forecast-days">
@@ -66,8 +75,8 @@ export default function ForecastContainer({ address, dataArr }) {
                             <DayCard
                                 date={val.date}
                                 icon={mostOccuringIcon(val.Timeframes)}
-                                tempMax={Math.round(val.temp_max_c)} 
-                                tempMin={Math.round(val.temp_min_c)} 
+                                tempMax={Math.round(unitDeg === "C" ? val.temp_max_c : val.temp_max_f)} 
+                                tempMin={Math.round(unitDeg === "C" ? val.temp_min_c : val.temp_min_f)} 
                                 key={index} 
                             />
                         )

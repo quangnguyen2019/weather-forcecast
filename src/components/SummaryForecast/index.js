@@ -7,7 +7,10 @@ import DetailLine from '../DetailLine/index';
 
 dayjs.extend(localizedFormat);
 
-export default function SummaryForecast({ dataArr, getIconPath }) {
+export default function SummaryForecast(props) {
+    // PROPS
+    const { dataArr, getIconPath, unitDeg, switchUnitDeg } = props;
+
     // STATE
     const [timeframe, setTimeframe] = useState({});
 
@@ -51,23 +54,44 @@ export default function SummaryForecast({ dataArr, getIconPath }) {
                                 } 
                                 alt="" 
                             />
-                            <span className="temperature"> 
-                                {Math.round(timeframe.temp_c)}&deg;C 
+
+                            <span className="temperature">
+                                {
+                                    unitDeg === "C" ?
+                                    Math.round(timeframe.temp_c) :
+                                    Math.round(timeframe.temp_f)
+                                }&deg;
                             </span>
+
+                            <div className="unit-group">
+                                <p> {unitDeg === "C" ? "C" : "F"} </p>
+                                <button 
+                                    className="btn-switcher" 
+                                    onClick={() => switchUnitDeg()}
+                                > 
+                                    {unitDeg === "C" ? "F" : "C"} 
+                                </button>
+                            </div>
                         </div>
+
                         <div className="current-summary">
                             <p className="caption">{ timeframe.wx_desc }</p>
                             <p className="summary"> 
                                 { 
                                     +timeStr < 1700 ? 
-                                    `The high will be ${Math.round(dataArr[0].temp_max_c)}\u00b0.` :
-                                    `The low will be ${Math.round(dataArr[0].temp_min_c)}\u00b0.`
+                                    ( `The high will be ${Math.round(
+                                        unitDeg === "C" ? 
+                                        dataArr[0].temp_max_c : 
+                                        dataArr[0].temp_max_f)}\u00b0.` ) :
+                                    ( `The low will be ${Math.round(unitDeg === "C" ? 
+                                        dataArr[0].temp_min_c : 
+                                        dataArr[0].temp_min_f)}\u00b0.` )
                                 }
                             </p>
                         </div>
                     </div>
                     
-                    <DetailLine timeframe={timeframe} />
+                    <DetailLine timeframe={timeframe} unitDeg={unitDeg} />
                 </div>
             }
         </div>

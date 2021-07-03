@@ -78,6 +78,28 @@
 .current-container .summary-container .summary-line .current-temperature .temperature {
   font-size: 90px;
 }
+.current-container .summary-container .summary-line .current-temperature .unit-group {
+  padding: 18px 12px 0;
+  text-align: center;
+}
+.current-container .summary-container .summary-line .current-temperature .unit-group > p {
+  font-size: 37px;
+  margin: 0;
+  font-weight: 600;
+}
+.current-container .summary-container .summary-line .current-temperature .unit-group .btn-switcher {
+  padding: 0;
+  font-size: 32px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all .3s;
+}
+.current-container .summary-container .summary-line .current-temperature .unit-group .btn-switcher:hover {
+  opacity: 0.8;
+}
 .current-container .summary-container .summary-line .current-summary .caption {
   margin: 20px 0 15px 0;
   font-size: 30px;
