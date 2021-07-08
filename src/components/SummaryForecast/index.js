@@ -67,7 +67,13 @@ export default function SummaryForecast(props) {
                                 <p> {unitDeg === "C" ? "C" : "F"} </p>
                                 <button 
                                     className="btn-switcher" 
-                                    onClick={() => switchUnitDeg()}
+                                    onClick={() => {
+                                        switchUnitDeg();
+                                        localStorage.setItem(
+                                            "selectedUnit", 
+                                            unitDeg === "C" ? "F" : "C"
+                                        );
+                                    }}
                                 > 
                                     {unitDeg === "C" ? "F" : "C"} 
                                 </button>

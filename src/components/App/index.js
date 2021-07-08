@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import Loader from 'react-loader-spinner';
 
 import '../../styles/styles.css';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 import ForecastContainer from '../ForecastContainer/index';
-import Loader from 'react-loader-spinner';
 
 function App() {
 
@@ -35,13 +35,15 @@ function App() {
             })
 
             if (lat !== 0 && long !== 0) {
+                // Get address from coordinate
                 await fetch(urlReverse_Geocoding)
                     .then(res => res.json())
                     .then(result => {
                         let addr = result.data[0];
-                        setAddress(`${addr.county}, ${addr.region}, ${addr.country}`);
+                        setAddress(`${addr.county}, ${addr.region}, ${addr.country}`);  
                     })
 
+                // Get weather data
                 await fetch(urlWeather)
                     .then(res => res.json())
                     .then(data => {

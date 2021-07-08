@@ -7,7 +7,9 @@ import DayCard from '../DayCard/index';
 
 export default function ForecastContainer({ address, dataArr }) {
     // STATE
-    const [unitDeg, setUnitDeg] = useState("C");
+    const [unitDeg, setUnitDeg] = useState(
+        localStorage.getItem("selectedUnit") || "C"
+    );
 
     // Callback switch unit degree
     const switchUnitDeg = () => {
