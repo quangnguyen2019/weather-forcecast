@@ -168,4 +168,48 @@
   margin-left: 10px;
 }
 
+.weather-carousel-container {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  background: #ffffff2b;
+  padding: 8px 0;
+}
+.weather-carousel-container .content-container {
+  margin: auto;
+  width: 1232px;
+}
+.weather-carousel-container .content-container .location-search {
+  display: flex;
+}
+.weather-carousel-container .content-container .location-search > input {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px 0 0 20px;
+  background: #ffffffc9;
+  width: 230px;
+  outline: none;
+}
+.weather-carousel-container .content-container .location-search > input:focus {
+  background-color: #fff;
+}
+.weather-carousel-container .content-container .location-search > input:focus + .btn-search {
+  background-color: #fff;
+}
+.weather-carousel-container .content-container .location-search > input::placeholder {
+  opacity: 0.8;
+}
+.weather-carousel-container .content-container .location-search .btn-search {
+  border: none;
+  padding: 8px 17px 7px 7px;
+  border-radius: 0 20px 20px 0;
+  background: #ffffffc9;
+}
+.weather-carousel-container .content-container .location-search .btn-search > img {
+  width: 14px;
+}
+.weather-carousel-container .content-container .location-search .btn-search > img:hover {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=styles.css.map */

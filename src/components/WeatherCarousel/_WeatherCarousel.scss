@@ -1,0 +1,52 @@
+.weather-carousel-container {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    background: #ffffff2b;
+    padding: 8px 0;
+
+    .content-container {
+        margin: auto;
+        width: 1232px;
+
+        .location-search {
+            display: flex;
+
+            & > input {
+                border: none;
+                padding: 8px 14px;
+                border-radius: 20px 0 0 20px;
+                background: #ffffffc9;
+                width: 230px;
+                outline: none;
+
+                &:focus {
+                    background-color: #fff;
+
+                    & + .btn-search {
+                        background-color: #fff;
+                    }
+                }
+
+                &::placeholder {
+                    opacity: 0.8;
+                }
+            }
+            .btn-search {
+                border: none;
+                padding: 8px 17px 7px 7px;
+                border-radius: 0 20px 20px 0;
+                background: #ffffffc9;
+
+                & > img {
+                    width: 14px;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+}
