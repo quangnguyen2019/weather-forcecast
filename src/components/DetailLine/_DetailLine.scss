@@ -6,9 +6,11 @@
 
     .detail-item {
         display: flex;
+        align-items: center;
 
         .detail-icon {
             @include represent-icon;
+            height: auto;
         }
 
         &-group {
@@ -25,6 +27,7 @@
                 .wind-dir-icon {
                     @include represent-icon(11px);
                     margin-left: 10px;
+                    height: auto;
                 }
             }
         }

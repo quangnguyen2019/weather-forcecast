@@ -143,12 +143,14 @@
 }
 .detail-line .detail-item {
   display: flex;
+  align-items: center;
 }
 .detail-line .detail-item .detail-icon {
   width: 26px;
   fill: white;
   opacity: 0.8;
   margin-right: 12px;
+  height: auto;
 }
 .detail-line .detail-item-group .detail-item-title {
   opacity: 0.8;
@@ -166,6 +168,7 @@
   opacity: 0.8;
   margin-right: 12px;
   margin-left: 10px;
+  height: auto;
 }
 
 .weather-carousel-container {
