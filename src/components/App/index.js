@@ -14,7 +14,10 @@ function App() {
     const [long, setLong] = useState(0);
     const [dataArr, setDataArr] = useState([]);
     const [address, setAddress] = useState('');
+    // Get input value from CHILD COMPONENT
     const [searchAddr, setSearchAddr] = useState('');
+    //
+    const [isDetect, setIsDetect] = useState('');
 
     // ENVIRONMENT VAR
     const geocoding_api = process.env.REACT_APP_API_POSITIONSTACK;
@@ -41,11 +44,28 @@ function App() {
         `app_id=${weather_app_id}&` + 
         `app_key=${weather_app_key}`;
        
+
+     // CALLBACK PASSED TO CHILD COMPONENT
+     const inputValCallback = (val) => {
+        setSearchAddr(val);
+    };
+
+    const detectLocation = () => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            setLat(position.coords.latitude);
+            setLong(position.coords.longitude);
+        })
+    }
+
+    const setIsDetectCallback = () => {
+        setIsDetect(true);
+    }
         
     useEffect(() => {
         async function fetchData() {
-            // Get location coordinates according to input value
-            if (searchAddr !== '') {
+            if (searchAddr !== '' && !isDetect) {
+                // Get location coordinates 
+                // according to input value
                 await fetch(urlForward_Geocoding)
                     .then(res => res.json())
                     .then(result => {
@@ -54,25 +74,29 @@ function App() {
                         setLat(data.latitude);
                         setLong(data.longitude);
 
-                        // Avoid showing NULL value
-                        data.county ?
+                        // Show address
+                        data.county ?       // Avoid showing NULL value
                             setAddress(`${data.county}, ${data.region}, ${data.country}`) :
-                            setAddress(`${data.region}, ${data.country}`);  
+                            setAddress(`${data.region}, ${data.country}`);
                     });
             } 
             else {
-                // Get current location coordinates
-                navigator.geolocation.getCurrentPosition((position) => {
-                    setLat(position.coords.latitude);
-                    setLong(position.coords.longitude);
-                })
+                if (isDetect) {
+                    setSearchAddr('');
+                    setIsDetect(false);
+                }
+                else {
+                    // Get current location coordinates
+                    // when starting to load website
+                    detectLocation();
+                }
             }
 
             if (lat !== 0 && long !== 0) {
                 // Get address from coordinate
                 searchAddr === '' &&
                 await fetch(urlReverse_Geocoding)
-                    .then(res => res.json())
+                    .then(res => res.json()) 
                     .then(result => {
                         let addr = result.data[0];
                         setAddress(`${addr.county}, ${addr.region}, ${addr.country}`);  
@@ -89,13 +113,8 @@ function App() {
         }
         fetchData();
     }, 
-    [searchAddr, lat, long]);
-
-
-    // CALLBACK PASSED TO CHILD COMPONENT
-    const inputValCallback = (val) => {
-        setSearchAddr(val);
-    };
+    [searchAddr, long]);
+   
 
     return (
         ( dataArr.length === 0 ) ?
@@ -112,7 +131,11 @@ function App() {
                     <div className="second-layer"></div>
                 </div>
                 
-                <WeatherCarousel parentCallback={inputValCallback} />
+                <WeatherCarousel 
+                    inputValCallback={inputValCallback} 
+                    detectLocCallback={detectLocation}
+                    setIsDetectCallback={setIsDetectCallback}
+                />
                 <ForecastContainer address={address} dataArr={dataArr} />
             </div>
     );
