@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import classNames from 'classnames';
 
 import '../../styles/styles.css';
 
@@ -46,7 +45,7 @@ export default function WeatherCarousel(props) {
         setDropdownOpen(false);
     };
 
-    // Handle outside click
+    // Handle clicks outside input field
     useEffect(() => {
         function close(e) {
             if (!dropdownRef.current.contains(e.target)) {
@@ -57,7 +56,6 @@ export default function WeatherCarousel(props) {
         dropdownOpen
             ? document.addEventListener('click', close)
             : document.removeEventListener('click', close);
-            
     }, 
     [dropdownOpen]);
 

@@ -30,7 +30,7 @@ export default function ForecastContainer({ address, dataArr }) {
         );
     }
 
-    const mostOccuringIcon = (arr) => {
+    const mostOccurringIcon = (arr) => {
 
         // Count Frequency =>  Object { a: 2, b: 3, ... }
         const hashmap = arr.reduce((result, val) => {
@@ -76,7 +76,7 @@ export default function ForecastContainer({ address, dataArr }) {
                         dataArr.map((val, index) =>
                             <DayCard
                                 date={val.date}
-                                icon={mostOccuringIcon(val.Timeframes)}
+                                icon={mostOccurringIcon(val.Timeframes)}
                                 tempMax={Math.round(unitDeg === "C" ? val.temp_max_c : val.temp_max_f)} 
                                 tempMin={Math.round(unitDeg === "C" ? val.temp_min_c : val.temp_min_f)} 
                                 key={index} 
